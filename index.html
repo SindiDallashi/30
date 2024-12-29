@@ -13,7 +13,7 @@
             align-items: center;
             background: linear-gradient(135deg, #5b2c6f, #8e44ad);
             color: white;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poster', sans-serif;
             overflow: hidden;
         }
 
@@ -55,7 +55,7 @@
             transform: scale(1.1);
         }
 
-        .floating-balloons {
+        .floating-saturns {
             position: absolute;
             top: 0;
             left: 0;
@@ -64,12 +64,12 @@
             overflow: hidden;
         }
 
-        .balloon {
+        .saturn {
             position: absolute;
-            width: 50px;
-            height: 80px;
-            background: radial-gradient(circle, #e84393 50%, #c0392b);
-            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Saturn_-_Voyager_2.jpg/512px-Saturn_-_Voyager_2.jpg') no-repeat center center;
+            background-size: contain;
             animation: float 5s ease-in-out infinite;
         }
 
@@ -81,20 +81,36 @@
                 transform: translateY(-150%);
             }
         }
+
+        .albanian-map {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: url('https://upload.wikimedia.org/wikipedia/commons/3/3c/Flag-map_of_Albania.svg') no-repeat center center;
+            background-size: contain;
+            width: 300px;
+            height: 400px;
+        }
     </style>
 </head>
 <body>
+    <audio autoplay loop>
+        <source src="https://www.youtube.com/embed/8kzj3kNcy3E?start=54" type="audio/mpeg">
+    </audio>
     <div class="container">
         <h1>Happy Birthday!</h1>
         <a class="birthday-link" href="https://www.google.com" target="_blank">Celebrate on Google</a>
     </div>
 
-    <div class="floating-balloons">
-        <div class="balloon" style="left: 10%; animation-delay: 0s;"></div>
-        <div class="balloon" style="left: 25%; animation-delay: 2s;"></div>
-        <div class="balloon" style="left: 50%; animation-delay: 4s;"></div>
-        <div class="balloon" style="left: 70%; animation-delay: 1s;"></div>
-        <div class="balloon" style="left: 85%; animation-delay: 3s;"></div>
+    <div class="albanian-map"></div>
+
+    <div class="floating-saturns">
+        <div class="saturn" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="saturn" style="left: 30%; animation-delay: 2s;"></div>
+        <div class="saturn" style="left: 50%; animation-delay: 4s;"></div>
+        <div class="saturn" style="left: 70%; animation-delay: 1s;"></div>
+        <div class="saturn" style="left: 90%; animation-delay: 3s;"></div>
     </div>
 </body>
 </html>
