@@ -7,17 +7,34 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <audio autoplay loop>
+    <!-- Background Music -->
+    <audio id="background-music" autoplay loop>
         <source src="assets/Drejt_suksesit.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
+
+    <!-- Background Image -->
     <div id="background"></div>
+
+    <!-- Content -->
     <div id="content">
-        <img src="assets/double_st.gif" class="top-left" alt="Double ST">
-        <img src="assets/double_st.gif" class="top-right" alt="Double ST">
-        <img src="assets/11.gif" class="center-top" alt="11">
-        <img src="assets/ca.png" class="bottom-left" alt="CA">
-        <h1 id="birthday-text">Happy Birthday!</h1>
+        <!-- Top Left and Right GIFs -->
+        <img src="assets/double_st.gif" class="top-left hidden" alt="Double ST">
+        <img src="assets/double_st.gif" class="top-right hidden" alt="Double ST">
+
+        <!-- Center GIF -->
+        <img src="assets/11.gif" class="center-top hidden" alt="11">
+
+        <!-- Bottom Left Image -->
+        <img src="assets/ca.png" class="bottom-left hidden" alt="CA">
+
+        <!-- Glowing Text -->
+        <h1 id="birthday-text" class="hidden">Happy Birthday!</h1>
+
+        <!-- Mute Button -->
+        <button id="mute-button">🔊 Mute</button>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
