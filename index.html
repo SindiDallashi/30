@@ -1,40 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urine Urine Ditelindja!</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    #background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
+      animation: glow 2s infinite;
+      opacity: 0;
+      animation: popin 1s ease-out forwards, glow 2s infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
+      }
+      50% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 40px rgba(255, 255, 255, 0.8);
+      }
+    }
+
+    @keyframes popin {
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.7);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    #confetti-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+  </style>
 </head>
 <body>
-    <!-- Background Music -->
-    <audio id="background-music" autoplay loop>
-        <source src="Drejt_suksesit.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+  <video id="background-video" autoplay muted loop>
+    <source src="https://raw.githubusercontent.com/SindiDallashi/30/main/video.MOV" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
-    <!-- Background Image -->
-    <div id="background"></div>
+  <div class="content">
+    <h1>Urine Urine Ditelindja!</h1>
+    <button onclick="launchConfetti()">Celebrate!</button>
+  </div>
 
-    <!-- Content -->
-    <div id="content">
-        <!-- Top Left and Right GIFs -->
-        <img src="st.gif" class="top-left hidden" alt="Double ST">
-        <img src="st.gif" class="top-right hidden" alt="Double ST">
+  <div id="confetti-container"></div>
 
-        <!-- Center GIF -->
-        <img src="11.gif" class="center-top hidden" alt="11">
+  <script>
+    function launchConfetti() {
+      const confettiContainer = document.getElementById('confetti-container');
+      for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement('div');
+        confetti.style.position = 'absolute';
+        confetti.style.top = Math.random() * 100 + 'vh';
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.width = '10px';
+        confetti.style.height = '10px';
+        confetti.style.backgroundColor = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
+        confetti.style.opacity = Math.random();
+        confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+        confetti.style.animation = `fall ${2 + Math.random() * 3}s linear forwards`;
 
-        <!-- Bottom Left Image -->
-        <img src="ca.png" class="bottom-left hidden" alt="CA">
+        confettiContainer.appendChild(confetti);
 
-        <!-- Glowing Text -->
-        <h1 id="birthday-text" class="hidden">Happy Birthday!</h1>
+        setTimeout(() => confetti.remove(), 5000);
+      }
+    }
 
-        <!-- Mute Button -->
-        <button id="mute-button">🔊 Mute</button>
-    </div>
-
-    <script src="script.js"></script>
+    document.head.insertAdjacentHTML('beforeend', `
+      <style>
+        @keyframes fall {
+          0% {
+            transform: translateY(-10vh);
+          }
+          100% {
+            transform: translateY(100vh);
+          }
+        }
+      </style>
+    `);
+  </script>
 </body>
 </html>
