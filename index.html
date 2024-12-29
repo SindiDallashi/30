@@ -39,9 +39,9 @@
     h1 {
       font-size: 3rem;
       text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
-      animation: glow 2s infinite;
+      animation: glow 2s infinite, zoomInOut 3s infinite;
       opacity: 0;
-      animation: popin 1s ease-out forwards, glow 2s infinite;
+      animation: popin 1s ease-out forwards, glow 2s infinite, zoomInOut 3s infinite;
     }
 
     @keyframes glow {
@@ -61,6 +61,15 @@
       100% {
         transform: scale(1);
         opacity: 1;
+      }
+    }
+
+    @keyframes zoomInOut {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
       }
     }
 
@@ -99,7 +108,7 @@
 
   <div class="content">
     <h1>Urine Urine Ditelindja!</h1>
-    <button onclick="launchConfetti()">Celebrate!</button>
+    <button onclick="launchConfetti()">s'ka shtet!</button>
   </div>
 
   <div id="confetti-container"></div>
