@@ -92,7 +92,7 @@
   </style>
 </head>
 <body>
-  <video id="background-video" autoplay muted loop>
+  <video id="background-video" autoplay loop>
     <source src="https://raw.githubusercontent.com/SindiDallashi/30/main/video.MOV" type="video/mp4">
     Your browser does not support the video tag.
   </video>
@@ -105,6 +105,12 @@
   <div id="confetti-container"></div>
 
   <script>
+    document.addEventListener('click', () => {
+      const video = document.getElementById('background-video');
+      video.muted = false;
+      video.play();
+    });
+
     function launchConfetti() {
       const confettiContainer = document.getElementById('confetti-container');
       for (let i = 0; i < 100; i++) {
